@@ -22,19 +22,19 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    // public function boot()
-    // {
-    //     //
-    //     $settings = Setting::all('key', 'value')
-    //         ->keyBy('key')
-    //         ->transform(function ($setting) {
-    //             return $setting->value;
-    //         })
-    //         ->toArray();
-    //     config([
-    //        'settings' => $settings
-    //     ]);
+    public function boot()
+    {
+        //
+        $settings = Setting::all('key', 'value')
+            ->keyBy('key')
+            ->transform(function ($setting) {
+                return $setting->value;
+            })
+            ->toArray();
+        config([
+           'settings' => $settings
+        ]);
 
-    //     config(['app.name' => config('settings.app_name')]);
-    // }
+        config(['app.name' => config('settings.app_name')]);
+    }
 }
